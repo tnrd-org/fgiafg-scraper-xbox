@@ -9,9 +9,10 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 
 WORKDIR /src
 
-COPY *.csproj ./
+COPY FGIAFG.Scraper.Xbox/FGIAFG.Scraper.Xbox.csproj ./
 RUN dotnet restore
-COPY . .
+
+COPY FGIAFG.Scraper.Xbox/ .
 RUN dotnet build -c Release -o /app/build
 
 FROM build AS publish
